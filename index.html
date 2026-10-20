@@ -123,6 +123,7 @@
   .evidence-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
   .evidence-row img{width:100%;aspect-ratio:180/232;object-fit:cover;border-radius:4px;border:1px solid var(--line);}
   .evidence-row span{display:block;font-size:13px;color:var(--ink-soft);margin-top:6px;}
+  figure.evidence > img{display:block;width:100%;height:auto;border-radius:4px;border:1px solid var(--line);}
   figure.evidence figcaption{font-size:14px;color:var(--ink-soft);font-style:italic;margin-top:14px;max-width:70ch;}
   @media (max-width:560px){ .evidence-row{gap:6px;} .evidence-row span{font-size:11.5px;} }
   .results{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px;}
@@ -176,6 +177,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#thesis">Thesis</a></li>
+      <li><a href="#bayanbench">BayanBench</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -188,7 +190,7 @@
   <div class="wrap">
     <p class="hero-kicker">Data Science student, Angeles University Foundation</p>
     <h1 class="hero-title">My thesis team built a phone app that diagnoses maize leaf disease without an internet connection.</h1>
-    <p class="lede">I am a fourth-year BSCS student majoring in Data Science, graduating in 2027, and I am looking for a Data Science internship. For our thesis, I built the retrieval-augmented guidance backend and contributed to the deep learning pipeline and the Android app. My coursework projects include AI agents and a text-to-SQL system built with the Gemini API.</p>
+    <p class="lede">I am a fourth-year BSCS student majoring in Data Science, graduating in 2027, and I am looking for a Data Science internship. For our thesis, I built the retrieval-augmented guidance backend and contributed to the deep learning pipeline and the Android app. My coursework projects include AI agents and a text-to-SQL system built with the Gemini API. I also built BayanBench, an independent benchmark that tests what AI models know about Philippine towns.</p>
     <div class="hero-actions">
       <a class="btn btn-solid" href="#thesis">Read about the thesis</a>
       <a class="btn btn-line" href="Ursua_CV.pdf" download>Download CV (PDF)</a>
@@ -259,7 +261,35 @@
   </div>
 </section>
 
-<section id="projects" class="alt">
+<section id="bayanbench" class="alt">
+  <div class="wrap">
+    <div class="section-head"><h2>Independent project</h2></div>
+    <h3 class="thesis-title">BayanBench: Does AI Know Your Town?</h3>
+    <p class="thesis-meta">An audit of AI knowledge of 1,642 Philippine cities and municipalities, using the Philippine Standard Geographic Code of the Philippine Statistics Authority as the answer key. Built on my own.</p>
+
+    <div class="prose">
+      <p>Government offices and businesses in the Philippines are beginning to use AI chatbots. If a model answers correctly about large cities but guesses about small towns, residents of small towns receive worse information. I wrote 7,441 questions from official government data, asking which province and region a town is in, whether it is a city or a municipality, how many barangays it has, and the names of three of them. I then scored the answers of five models automatically and confirmed the scorer against 49 hand-checked answers, with no disagreements.</p>
+    </div>
+
+    <figure class="evidence">
+      <img src="fig-bayanbench.jpg" alt="Line chart: four small open models answer province and region questions correctly far more often for large towns than for small towns, while Gemini 3.6 Flash stays near 100 percent" loading="lazy" width="1600" height="996">
+      <figcaption>Share of province and region questions answered correctly, by town population, on a sample of 400 towns. The four small open models fall sharply for small towns; Gemini 3.6 Flash, a much larger hosted model, does not.</figcaption>
+    </figure>
+
+    <table class="results">
+      <tr><td>Small towns</td><td>Small open models were far less accurate for small towns: as little as 11 percent correct for the smallest towns, against up to 97 percent for the largest</td></tr>
+      <tr><td>Mindanao</td><td>Even with town size accounted for, Mindanao towns had about half the odds of a correct answer compared with Luzon towns</td></tr>
+      <tr><td>A larger model</td><td>Gemini 3.6 Flash knew far more, but still gave outdated regions for recently reorganized provinces such as Negros and Sulu</td></tr>
+      <tr><td>The fix</td><td>Adding the official record of the town to the prompt raised accuracy for the smallest towns to 97 percent or more and closed the gap between small and large towns</td></tr>
+    </table>
+    <p class="built"><strong>Built with</strong> Python, pandas, NumPy, Matplotlib, Ollama, Gemini API, Google Colab</p>
+    <div class="links">
+      <a href="https://github.com/walt1210/bayanbench" target="_blank" rel="noopener">Repository and full write-up</a>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
   <div class="wrap">
     <div class="section-head">
       <h2>Other projects</h2>
@@ -286,7 +316,7 @@
   </div>
 </section>
 
-<section id="skills">
+<section id="skills" class="alt">
   <div class="wrap">
     <div class="section-head">
       <h2>Skills and tools</h2>
@@ -302,7 +332,7 @@
       </div>
       <div class="skill-cat">
         <h4>Agentic AI and LLM frameworks</h4>
-        <p>LangChain, CrewAI, Google Gemini API, Pydantic, RAG pipelines, prompt engineering</p>
+        <p>LangChain, CrewAI, Google Gemini API, Pydantic, RAG pipelines, prompt engineering, Ollama, LLM evaluation</p>
       </div>
       <div class="skill-cat">
         <h4>Web, mobile, and backend</h4>
