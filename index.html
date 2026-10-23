@@ -296,6 +296,18 @@
       <p>Smaller academic projects on AI agents and language models.</p>
     </div>
     <div class="minor">
+      <h3>EventOps AI: governed multi-agent event planning</h3>
+      <p>A group final project for a course on agentic AI, AI governance, and orchestration, for which I built the project notebook. An organization officer types one sentence, such as a seminar for 100 students with a &#8369;30,000 budget, and four LangGraph agents produce a plan for the venue, equipment, food, timeline, and budget. The language model only decides what is needed; Python computes every cost from a price list. Seven coded governance rules, checks for prompt injection and personal data, and an append-only audit log run before the plan reaches a person, and the workflow pauses until the organizer approves it, requests a revision, or rejects it. All seven test cases passed, including over-budget, missing-equipment, and out-of-scope requests.</p>
+      <p class="built"><strong>Built with</strong> Python, LangGraph, Gemini API, Pydantic, pandas, ipywidgets</p>
+      <div class="links"><a href="https://github.com/walt1210/eventops-ai" target="_blank" rel="noopener">Repository</a></div>
+    </div>
+    <div class="minor">
+      <h3>Multi-agent report writer</h3>
+      <p>An individual coursework project. Four LangGraph agents turn local documents into a cited PDF report. A Router plans the task, a Reader gathers evidence through a custom MCP server and a ChromaDB index, a Writer drafts using only that evidence, and a Reviewer checks every citation against the passages that were actually retrieved. Tested on a long thesis document, the Reviewer caught three citations to passages that had never been retrieved and sent the draft back for revision. Saved user rules and past reports carry over between tasks through long-term memory.</p>
+      <p class="built"><strong>Built with</strong> Python, LangGraph, Gemini API, MCP, ChromaDB, Sentence Transformers, ReportLab</p>
+      <div class="links"><a href="https://github.com/walt1210/multiagent-report-writer" target="_blank" rel="noopener">Repository</a></div>
+    </div>
+    <div class="minor">
       <h3>Closed-loop text-to-SQL agent</h3>
       <p>One Gemini model writes a SQL query from a plain-English question, and a second model reviews it against the live database schema before it runs. If the query still fails, the agent diagnoses the error, writes a simpler fallback query, and returns a result clearly marked as partial instead of crashing.</p>
       <p class="built"><strong>Built with</strong> Python, Gemini API, Pydantic, SQLite</p>
@@ -332,7 +344,7 @@
       </div>
       <div class="skill-cat">
         <h4>Agentic AI and LLM frameworks</h4>
-        <p>LangChain, CrewAI, Google Gemini API, Pydantic, RAG pipelines, prompt engineering, Ollama, LLM evaluation</p>
+        <p>LangChain, LangGraph, CrewAI, Model Context Protocol (MCP), Google Gemini API, Pydantic, RAG pipelines, prompt engineering, Ollama, LLM evaluation</p>
       </div>
       <div class="skill-cat">
         <h4>Web, mobile, and backend</h4>
